@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      {% load static %}
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+  <h1>Add a Book</h1>
+    <form action="/save" method="post">
+        {% csrf_token %}
+              <label for="title">Book Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn">
+
+        <label for="genre">Genre/Category:</label>
+        <select id="genre" name="genre" required>
+            <option value="">Select genre/category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label for="publicationYear">Publication Year:</label>
+        <input type="text" id="publicationYear" name="publicationYear">
+
+        <label for="synopsis">Synopsis/Summary:</label>
+        <textarea id="synopsis" name="synopsis" required></textarea>
+
+        <label for="coverImage">Cover Image:</label>
+        <input type="file" id="coverImage" name="coverImage">
+
+        <label for="comments">Comments/Notes:</label>
+        <textarea id="comments" name="comments"></textarea>
+
+        <button type="submit">Update Book</button>
+    </form>
+    <hr>
+    <h2>Existing Book List</h2>
+</body>
+</html>
